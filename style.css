@@ -1,4 +1,124 @@
-html {
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+header {
+  background-color: #333;
+  color: white;
+  padding: 0.5em 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.menu-icon {
+  font-size: 1.5em;
+  cursor: pointer;
+}
+.logo {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.search-container {
+  display: flex;
+  align-items: center;
+}
+.search-container input {
+  padding: 0.5em;
+  border: none;
+  border-radius: 3px 0 0 3px;
+}
+.search-container button {
+  padding: 0.5em;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  border-radius: 0 3px 3px 0;
+}
+.banner {
+  max-width: 800px;
+  margin: 2em auto;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.banner-slide {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-around;
+  padding: 2em;
+}
+.banner-content {
+  flex: 1;
+  padding: 0 1em;
+  text-align: left;
+}
+.banner-image {
+  flex: 1;
+  max-width: 50%;
+  text-align: center;
+}
+.banner-image img {
+  max-width: 100%;
+  height: auto;
+}
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.category {
+  background-color: white;
+  margin: 1em;
+  padding: 1em;
+  width: 200px;
+  text-align: center;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+.category img {
+  max-width: 100px;
+  height: auto;
+}
+.menu {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
   height: 100%;
-  width: 100%;
+  background-color: #333;
+  transition: 0.3s;
+  padding-top: 60px;
+  z-index: 1000;
+}
+.menu.active {
+  left: 0;
+}
+.menu a {
+  padding: 15px 25px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #fff;
+  display: block;
+  transition: 0.3s;
+}
+.menu a:hover {
+  background-color: #4CAF50;
+}
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 30px;
+  cursor: pointer;
+  color: #fff;
+}
+/* Ensure Slick slider doesn't break the layout */
+.slick-slide {
+  display: flex !important;
+}
+.slick-initialized .slick-slide {
+  display: flex !important;
 }
