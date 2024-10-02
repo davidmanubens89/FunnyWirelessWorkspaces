@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MultiShop - Your One-Stop E-commerce Solution</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 0.5em 1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .menu-icon {
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+        .logo {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .search-container {
+            display: flex;
+            align-items: center;
+        }
+        .search-container input {
+            padding: 0.5em;
+            border: none;
+            border-radius: 3px 0 0 3px;
+        }
+        .search-container button {
+            padding: 0.5em;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            border-radius: 0 3px 3px 0;
+        }
+        .banner {
+            max-width: 800px;
+            margin: 2em auto;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .banner-slide {
+            display: flex !important;
+            align-items: center;
+            justify-content: space-around;
+            padding: 2em;
+        }
+        .banner-content {
+            flex: 1;
+            padding: 0 1em;
+            text-align: left;
+        }
+        .banner-image {
+            flex: 1;
+            max-width: 50%;
+            text-align: center;
+        }
+        .banner-image img {
+            max-width: 100%;
+            height: auto;
+        }
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .category {
+            background-color: white;
+            margin: 1em;
+            padding: 1em;
+            width: 200px;
+            text-align: center;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+        .category img {
+            max-width: 100px;
+            height: auto;
+        }
+        .menu {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            background-color: #333;
+            transition: 0.3s;
+            padding-top: 60px;
+            z-index: 1000;
+        }
+        .menu.active {
+            left: 0;
+        }
+        .menu a {
+            padding: 15px 25px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #fff;
+            display: block;
+            transition: 0.3s;
+        }
+        .menu a:hover {
+            background-color: #4CAF50;
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            font-size: 30px;
+            cursor: pointer;
+            color: #fff;
+        }
+        /* Ensure Slick slider doesn't break the layout */
+        .slick-slide {
+            display: flex !important;
+        }
+        .slick-initialized .slick-slide {
+            display: flex !important;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+        <div class="logo">MultiShop</div>
+        <div class="search-container">
+            <input type="text" placeholder="Search...">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </div>
+    </header>
+
+    <div class="menu" id="sideMenu">
+        <span class="close-btn" onclick="toggleMenu()">&times;</span>
+        <a href="#electronics">Electronics</a>
+        <a href="#fashion">Fashion</a>
+        <a href="#home-garden">Home & Garden</a>
+        <a href="#beauty">Beauty</a>
+    </div>
+
+    <div class="banner">
+        <div class="banner-slide">
+            <div class="banner-content">
+                <h2>Browse</h2>
+                <p>Explore our wide range of products across multiple categories.</p>
+            </div>
+            <div class="banner-image">
+                <img src="/api/placeholder/300/200" alt="Browse Products">
+            </div>
+        </div>
+        <div class="banner-slide">
+            <div class="banner-content">
+                <h2>Select</h2>
+                <p>Choose your favorite items and add them to your cart.</p>
+            </div>
+            <div class="banner-image">
+                <img src="/api/placeholder/300/200" alt="Select Products">
+            </div>
+        </div>
+        <div class="banner-slide">
+            <div class="banner-content">
+                <h2>Purchase</h2>
+                <p>Securely checkout and receive your items at your doorstep.</p>
+            </div>
+            <div class="banner-image">
+                <img src="/api/placeholder/300/200" alt="Purchase Products">
+            </div>
+        </div>
+    </div>
+
+    <div class="categories">
+        <div class="category" id="electronics">
+            <img src="/api/placeholder/100/100" alt="Electronics">
+            <h3>Electronics</h3>
+        </div>
+        <div class="category" id="fashion">
+            <img src="/api/placeholder/100/100" alt="Fashion">
+            <h3>Fashion</h3>
+        </div>
+        <div class="category" id="home-garden">
+            <img src="/api/placeholder/100/100" alt="Home & Garden">
+            <h3>Home & Garden</h3>
+        </div>
+        <div class="category" id="beauty">
+            <img src="/api/placeholder/100/100" alt="Beauty">
+            <h3>Beauty</h3>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $('.banner').slick({
+                autoplay: true,
+                autoplaySpeed: 3000,
+                dots: true,
+                arrows: false,
+                pauseOnHover: false,
+                pauseOnFocus: false
+            });
+        });
+
+        function toggleMenu() {
+            document.getElementById("sideMenu").classList.toggle("active");
+        }
+    </script>
+</body>
+</html>
